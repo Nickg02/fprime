@@ -64,6 +64,7 @@ class FpySequencer : public FpySequencerComponentBase {
         FpySequencer_MemCmpDirective memCmp;
         FpySequencer_StackCmdDirective stackCmd;
         FpySequencer_PushTimeDirective pushTime;
+        FpySequencer_SetSeedDirective setSeed;
         FpySequencer_PushRandDirective pushRand;
         FpySequencer_SetFlagDirective setFlag;
         FpySequencer_GetFlagDirective getFlag;
@@ -545,6 +546,9 @@ class FpySequencer : public FpySequencerComponentBase {
     //! Internal interface handler for directive_pushTime
     void directive_pushTime_internalInterfaceHandler(const Svc::FpySequencer_PushTimeDirective& directive) override;
 
+    //! Internal interface handler for directive_setSeed
+    void directive_setSeed_internalInterfaceHandler(const Svc::FpySequencer_SetSeedDirective& directive) override;
+
     //! Internal interface handler for directive_pushRand
     void directive_pushRand_internalInterfaceHandler(const Svc::FpySequencer_PushRandDirective& directive) override;
 
@@ -855,6 +859,7 @@ class FpySequencer : public FpySequencerComponentBase {
     Signal memCmp_directiveHandler(const FpySequencer_MemCmpDirective& directive, DirectiveError& error);
     Signal stackCmd_directiveHandler(const FpySequencer_StackCmdDirective& directive, DirectiveError& error);
     Signal pushTime_directiveHandler(const FpySequencer_PushTimeDirective& directive, DirectiveError& error);
+    Signal setSeed_directiveHandler(const FpySequencer_SetSeedDirective& directive, DirectiveError& error);
     Signal pushRand_directiveHandler(const FpySequencer_PushRandDirective& directive, DirectiveError& error);
     Signal setFlag_directiveHandler(const FpySequencer_SetFlagDirective& directive, DirectiveError& error);
     Signal getFlag_directiveHandler(const FpySequencer_GetFlagDirective& directive, DirectiveError& error);
